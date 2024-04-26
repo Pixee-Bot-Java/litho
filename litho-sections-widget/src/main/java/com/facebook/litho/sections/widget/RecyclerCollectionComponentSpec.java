@@ -352,7 +352,7 @@ public class RecyclerCollectionComponentSpec {
     final SectionTree sectionTreeInstance =
         SectionTree.create(sectionContext, targetBinder)
             .tag(
-                sectionTreeTag == null || sectionTreeTag.equals("")
+                sectionTreeTag == null || "".equals(sectionTreeTag)
                     ? section.getSimpleName()
                     : sectionTreeTag)
             .asyncPropUpdates(asyncPropUpdates)

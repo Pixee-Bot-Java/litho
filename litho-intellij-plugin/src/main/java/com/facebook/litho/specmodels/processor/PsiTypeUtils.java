@@ -158,7 +158,7 @@ class PsiTypeUtils {
 
   @VisibleForTesting
   static TypeName getWildcardTypeName(String wildcardTypeName) {
-    if (wildcardTypeName.equals("?")) {
+    if ("?".equals(wildcardTypeName)) {
       return WildcardTypeName.subtypeOf(Object.class);
     }
     Matcher matcher = SUPER_PATTERN.matcher(wildcardTypeName);

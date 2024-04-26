@@ -37,7 +37,7 @@ class DynamicPropsValidation {
     // Do not run validations for Test Specs since
     // the validation will run for the enclosed spec
     if (specModel instanceof HasEnclosedSpecModel
-        && specModel.getClass().getSimpleName().equals("TestSpecModel")) {
+        && "TestSpecModel".equals(specModel.getClass().getSimpleName())) {
       return ImmutableList.of();
     }
 

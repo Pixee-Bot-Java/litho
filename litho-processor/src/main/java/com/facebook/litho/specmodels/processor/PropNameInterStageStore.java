@@ -121,7 +121,7 @@ public class PropNameInterStageStore {
     } catch (final Exception e) {
       // ClientCodeException can be thrown by a bug in the javac ClientCodeWrapper
       if (!(e instanceof FileNotFoundException
-          || e.getClass().getName().equals("com.sun.tools.javac.util.ClientCodeException"))) {
+          || "com.sun.tools.javac.util.ClientCodeException".equals(e.getClass().getName()))) {
         throw new RuntimeException(
             String.format("Error opening resource %s/%s", packageName, filePath), e.getCause());
       }

@@ -169,7 +169,7 @@ public class DelegateMethodGenerator {
     }
 
     if (methodUsesDiffs) {
-      if (methodDescription.name.equals("shouldUpdate") && specModel instanceof HasPureRender) {
+      if ("shouldUpdate".equals(methodDescription.name) && specModel instanceof HasPureRender) {
         methodSpec.addParameter(specModel.getComponentClass(), "_prevAbstractImpl");
         methodSpec.addParameter(specModel.getStateContainerClass(), "_prevStateContainer");
         methodSpec.addParameter(specModel.getComponentClass(), "_nextAbstractImpl");
