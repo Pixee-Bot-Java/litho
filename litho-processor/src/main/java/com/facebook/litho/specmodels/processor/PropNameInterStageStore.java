@@ -20,6 +20,7 @@ import com.facebook.litho.specmodels.internal.ImmutableList;
 import com.facebook.litho.specmodels.model.InjectPropModel;
 import com.facebook.litho.specmodels.model.PropModel;
 import com.facebook.litho.specmodels.model.SpecModel;
+import io.github.pixee.security.BoundedLineReader;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -69,7 +70,7 @@ public class PropNameInterStageStore {
           try (BufferedReader reader =
               new BufferedReader(new InputStreamReader(r.openInputStream()))) {
             String line;
-            while ((line = reader.readLine()) != null) {
+            while ((line = BoundedLineReader.readLine(reader, 5_000_000)) != null) {
               props.add(line);
             }
           } catch (final IOException err) {
