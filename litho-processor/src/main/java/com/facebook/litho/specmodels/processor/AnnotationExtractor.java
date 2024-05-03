@@ -61,7 +61,7 @@ public class AnnotationExtractor {
     String annotationName = annotation.getAnnotationType().toString();
 
     return !annotationName.startsWith("com.facebook.")
-        && !annotationName.equals("kotlin.Metadata")
+        && !"kotlin.Metadata".equals(annotationName)
         && !annotationName.startsWith("kotlin.jvm");
   }
 }

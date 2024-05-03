@@ -285,7 +285,7 @@ public class BuilderGenerator {
     }
 
     for (BuilderMethodModel builderMethodModel : specModel.getExtraBuilderMethods()) {
-      if (builderMethodModel.paramName.equals("key") && !specModel.getTriggerMethods().isEmpty()) {
+      if ("key".equals(builderMethodModel.paramName) && !specModel.getTriggerMethods().isEmpty()) {
         // The key setter method has been created if we have trigger methods, ignore it.
         continue;
       }

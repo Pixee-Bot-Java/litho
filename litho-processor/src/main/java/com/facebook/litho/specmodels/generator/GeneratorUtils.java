@@ -68,7 +68,7 @@ public final class GeneratorUtils {
   }
 
   public static String capitalize(String str) {
-    if (str == null || str.trim().equals("")) {
+    if (str == null || "".equals(str.trim())) {
       return str;
     }
 

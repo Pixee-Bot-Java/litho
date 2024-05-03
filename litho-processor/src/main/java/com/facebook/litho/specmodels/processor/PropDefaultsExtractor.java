@@ -208,7 +208,7 @@ public class PropDefaultsExtractor {
         || !element.getModifiers().contains(Modifier.PUBLIC)
         || !element.getModifiers().contains(Modifier.STATIC)
         || !element.getModifiers().contains(Modifier.FINAL)
-        || !element.getSimpleName().toString().equals("Companion")) {
+        || !"Companion".equals(element.getSimpleName().toString())) {
       return ImmutableList.of();
     }
 

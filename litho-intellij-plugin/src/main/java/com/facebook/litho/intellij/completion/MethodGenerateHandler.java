@@ -129,36 +129,36 @@ class MethodGenerateHandler extends GenerateMembersHandlerBase {
         psiMethodWithContext,
         psiElement -> {
           final String elementText = psiElement.getText();
-          if (psiElement instanceof PsiTypeElement && elementText.equals("placeholder_type")) {
+          if (psiElement instanceof PsiTypeElement && "placeholder_type".equals(elementText)) {
             templateBuilder.replaceElement(
                 psiElement, new TextExpression(getFirstStateTypeAndName(specClass).first));
           } else if (psiElement instanceof PsiIdentifier) {
 
-            if (elementText.equals("onClickEvent")) {
+            if ("onClickEvent".equals(elementText)) {
               String methodName = getNextMethodName("onClickEvent", specClass);
               templateBuilder.replaceElement(psiElement, methodName);
-            } else if (elementText.equals("onTriggerEvent")) {
+            } else if ("onTriggerEvent".equals(elementText)) {
               String methodName = getNextMethodName("onTriggerEvent", specClass);
               templateBuilder.replaceElement(psiElement, methodName);
-            } else if (elementText.equals("placeholder_name")) {
+            } else if ("placeholder_name".equals(elementText)) {
               templateBuilder.replaceElement(
                   psiElement, new TextExpression(getFirstStateTypeAndName(specClass).second));
             } else if (psiElement.getParent() instanceof PsiMethod) {
               // Method name
               templateBuilder.replaceElement(psiElement, new TextExpression(elementText));
-            } else if (elementText.equals("placeholder_annotation_class")) {
+            } else if ("placeholder_annotation_class".equals(elementText)) {
               templateBuilder.replaceElement(psiElement, "ClickEvent");
-            } else if (elementText.equals("placeholder_from_event_parameter")) {
+            } else if ("placeholder_from_event_parameter".equals(elementText)) {
               templateBuilder.replaceElement(psiElement, "@FromEvent");
-            } else if (elementText.equals("placeholder_from_trigger_parameter")) {
+            } else if ("placeholder_from_trigger_parameter".equals(elementText)) {
               templateBuilder.replaceElement(psiElement, "@FromTrigger");
             }
           } else if (psiElement instanceof PsiTypeElement
-              && elementText.equals("placeholder_service_type")) {
+              && "placeholder_service_type".equals(elementText)) {
             templateBuilder.replaceElement(
                 psiElement, new TextExpression(getServiceType(specClass)));
           } else if (psiElement instanceof PsiTypeElement
-              && elementText.equals("placeholder_tree_prop_type")) {
+              && "placeholder_tree_prop_type".equals(elementText)) {
             templateBuilder.replaceElement(psiElement, "TreePropType");
           } else if (psiElement instanceof PsiComment) {
             templateBuilder.replaceElement(psiElement, new TextExpression(elementText));
