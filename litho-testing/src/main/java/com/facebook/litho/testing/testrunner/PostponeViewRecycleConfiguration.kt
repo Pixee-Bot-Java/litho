@@ -14,12 +14,17 @@
  * limitations under the License.
  */
 
-package com.facebook.litho
+package com.facebook.litho.testing.testrunner
 
-import android.graphics.drawable.Drawable
-import android.view.View
-import com.facebook.rendercore.RenderUnit
+import com.facebook.litho.widget.RecyclerBinderConfig
+import org.junit.runners.model.FrameworkMethod
 
-typealias ViewBinder = RenderUnit.Binder<Any?, View, Any?>
+class PostponeViewRecycleConfigurationConfiguration : LithoTestRunConfiguration {
+  override fun beforeTest(method: FrameworkMethod) {
+    RecyclerBinderConfig(postponeViewRecycle = true)
+  }
 
-typealias DrawableBinder = RenderUnit.Binder<Any?, Drawable, Any?>
+  override fun afterTest(method: FrameworkMethod) {
+    RecyclerBinderConfig(postponeViewRecycle = false)
+  }
+}
