@@ -56,6 +56,7 @@ import com.facebook.litho.widget.SolidColor;
 import com.facebook.litho.widget.Text;
 import com.facebook.yoga.YogaAlign;
 import com.facebook.yoga.YogaEdge;
+import java.security.SecureRandom;
 import java.util.Random;
 
 @LayoutSpec
@@ -84,7 +85,7 @@ class LifecycleDelegateComponentSpec {
       @Prop String id,
       @Prop(optional = true) DelegateListener delegateListener,
       @Prop(optional = true) DelegateListener consoleDelegateListener) {
-    final Random rand = new Random();
+    final Random rand = new SecureRandom();
     random.set(rand);
     colorIndex.set(rand.nextInt(COLORS.length));
     onDelegateMethodCalled(delegateListener, consoleDelegateListener, ON_CREATE_INITIAL_STATE, id);
